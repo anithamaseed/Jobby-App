@@ -6,8 +6,9 @@ const FiltersSection = props => {
 
     return employmentTypesList.map(eachType => {
       const {changeActiveEmploymentType} = props
+      const isChecked = false
       const onChangeActiveEmploymentType = () =>
-        changeActiveEmploymentType(eachType.employmentTypeId)
+        changeActiveEmploymentType(eachType.employmentTypeId, !isChecked)
 
       return (
         <li className="section-view-menu-item" key={eachType.employmentId}>
@@ -15,6 +16,7 @@ const FiltersSection = props => {
             type="checkbox"
             id={eachType.label}
             onClick={onChangeActiveEmploymentType}
+            checkedStatus={isChecked}
           />
           <label className="label" htmlFor={eachType.label}>
             {eachType.label}

@@ -63,6 +63,7 @@ class Jobs extends Component {
     searchInput: '',
     activeEmploymentType: '',
     activeSalaryRange: '',
+    activeEmploymentList: [],
   }
 
   componentDidMount() {
@@ -185,8 +186,21 @@ class Jobs extends Component {
     }
   }
 
-  changeActiveEmploymentType = employmentTypeId => {
-    this.setState({activeEmploymentType: employmentTypeId}, this.getAllJobsList)
+  changeActiveEmploymentType = (employmentTypeId, checkedStatus) => {
+    const {activeEmploymentList} = this.state
+    if (checkedStatus === true) {
+      activeEmploymentList.push(employmentTypeId)
+      this.setState(
+        {activeEmploymentType: activeEmploymentList.join(',')},
+        this.getAllJobsList,
+      )
+    } else {
+      activeEmploymentList.remove(employmentTypeId)
+      this.setState(
+        {activeEmploymentType: activeEmploymentList.join(',')},
+        this.getAllJobsList,
+      )
+    }
   }
 
   changeActiveSalaryRange = activeSalaryRange => {
@@ -195,6 +209,7 @@ class Jobs extends Component {
 
   render() {
     const {searchInput, activeEmploymentType, activeSalaryRange} = this.state
+
     return (
       <div className="all-jobs-container">
         <Header />
