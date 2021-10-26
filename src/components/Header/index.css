@@ -25,10 +25,53 @@
   text-decoration: none;
   margin: 15px;
 }
+.header-logout-container {
+  display: flex;
+  align-self: flex-end;
+}
 .logout-button {
   height: 25px;
   background-color: #4f46e5;
   border: 0px solid;
   border-radius: 5px;
   color: #f8fafc;
+}
+.header-icons-small {
+  display: none;
+}
+@media screen and (max-width: 576px) {
+  .home-icon {
+    color: #ffffff;
+    font-size: 20px;
+  }
+  .header-icons-small {
+    list-style-type: none;
+    display: flex;
+  }
+  .briefcase-icon {
+    font-size: 20px;
+  }
+  .logout-icon {
+    background-color: transparent;
+    border: 0 solid;
+  }
+  .briefcase-icon {
+    color: #ffffff;
+    font-size: 20px;
+  }
+  .logout-button {
+    display: none;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .Home-page-website-logo {
+    width: 80px;
+  }
+  .nav-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

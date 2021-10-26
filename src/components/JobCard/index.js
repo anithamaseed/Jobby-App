@@ -30,21 +30,27 @@ const JobCard = props => {
             <h1 className="company-name">{title}</h1>
             <div className="company-rating">
               <BsFillStarFill className="star-fill" />
-              <p>{rating}</p>
+              <p key="rating">{rating}</p>
             </div>
           </div>
         </div>
         <div className="location-employment-lpa">
           <div className="location-employment">
             <MdLocationOn className="icon" />
-            <p className="icon-name content">{location}</p>
+            <p className="icon-name content" key="location">
+              {location}
+            </p>
             <BsFillBriefcaseFill className="icon" />
-            <p className="content">{employment}</p>
+            <p className="content" key="employment_type">
+              {employment}
+            </p>
           </div>
           <p>{packagePerAnnum}</p>
         </div>
         <hr className="h-line" />
-        <h1 className="content-heading">Description</h1>
+        <h1 className="content-heading" key="job_description">
+          Description
+        </h1>
         <p>{jobDescription}</p>
       </li>
     </Link>

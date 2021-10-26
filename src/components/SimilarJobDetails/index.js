@@ -21,22 +21,29 @@ const SimilarJobDetails = props => {
           src={companyLogoUrl}
           alt="similar job company logo"
           className="company-logo"
+          key="company_logo_url"
         />
         <div className="company-name-rating">
           <h1 className="company-name">{title}</h1>
           <div className="company-rating">
             <BsFillStarFill className="star-fill" />
-            <p className="rating">{rating}</p>
+            <p className="rating" key="rating">
+              {rating}
+            </p>
           </div>
         </div>
       </div>
       <h1>Description</h1>
-      <p>{jobDescription}</p>
+      <p key="job_description">{jobDescription}</p>
       <div className="location-employment">
         <MdLocationOn className="icon" />
-        <p className="icon-name content">{location}</p>
+        <p className="icon-name content" key="location">
+          {location}
+        </p>
         <BsFillBriefcaseFill className="icon" />
-        <p className="content">{employment}</p>
+        <p className="content" key="employment_type">
+          {employment}
+        </p>
       </div>
     </li>
   )

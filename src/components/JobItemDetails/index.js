@@ -69,11 +69,11 @@ class JobItemDetails extends Component {
       const updatedSimilarJobData = fetchedData.similar_jobs.map(each => ({
         id: each.id,
         title: each.title,
-        companyLogoUrl: data.company_logo_url,
-        employmentType: data.employment_type,
-        jobDescription: data.job_description,
-        rating: data.rating,
-        location: data.location,
+        companyLogoUrl: each.company_logo_url,
+        employmentType: each.employment_type,
+        jobDescription: each.job_description,
+        rating: each.rating,
+        location: each.location,
       }))
       this.setState({
         jobData: updatedData,
@@ -148,16 +148,20 @@ class JobItemDetails extends Component {
               <h1 className="company-name">{title}</h1>
               <div className="company-rating">
                 <BsFillStarFill className="star-fill" />
-                <p>{rating}</p>
+                <p key={rating}>{rating}</p>
               </div>
             </div>
           </div>
           <div className="location-employment-lpa">
             <div className="location-employment">
               <MdLocationOn className="icon" />
-              <p className="icon-name content">{location}</p>
+              <p className="icon-name content" key={location}>
+                {location}
+              </p>
               <BsFillBriefcaseFill className="icon" />
-              <p className="content">{employmentType}</p>
+              <p className="content" key={employmentType}>
+                {employmentType}
+              </p>
             </div>
             <p>{packagePerAnnum}</p>
           </div>
@@ -169,8 +173,10 @@ class JobItemDetails extends Component {
             </a>
           </div>
 
-          <p className="content">{jobDescription}</p>
-          <p className="content-heading">Skills</p>
+          <p className="content" key={jobDescription}>
+            {jobDescription}
+          </p>
+          <h1 className="content-heading">Skills</h1>
           <ul className="skills-menu">
             {skillsObj.map(each => (
               <li className="skill-menu-item" key={each.name}>

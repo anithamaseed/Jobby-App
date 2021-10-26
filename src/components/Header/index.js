@@ -2,6 +2,9 @@ import {Link, withRouter} from 'react-router-dom'
 
 import Cookies from 'js-cookie'
 
+import {AiFillHome} from 'react-icons/ai'
+import {BsFillBriefcaseFill} from 'react-icons/bs'
+import {FiLogOut} from 'react-icons/fi'
 import './index.css'
 
 const Header = props => {
@@ -32,13 +35,29 @@ const Header = props => {
               Jobs
             </Link>
           </li>
-          <li>
+        </ul>
+
+        <button type="button" className="logout-button" onClick={onClickLogout}>
+          Logout
+        </button>
+        <ul className="header-icons-small">
+          <li className="nav-menu-item">
+            <Link to="/" className="nav-link">
+              <AiFillHome className="home-icon" />
+            </Link>
+          </li>
+          <li className="nav-menu-item">
+            <Link to="/jobs" className="nav-link">
+              <BsFillBriefcaseFill className="briefcase-icon" />
+            </Link>
+          </li>
+          <li className="nav-menu-item">
             <button
               type="button"
-              className="logout-button"
+              className="logout-icon"
               onClick={onClickLogout}
             >
-              Logout
+              <FiLogOut className="briefcase-icon" />
             </button>
           </li>
         </ul>

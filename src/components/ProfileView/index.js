@@ -54,9 +54,13 @@ class ProfileView extends Component {
     const {name, profileImageUrl, shortBio} = profileDetails
     return (
       <div className="profile-bg-view">
-        <img src={profileImageUrl} alt="profile" />
-        <h1 className="profile-name">{name}</h1>
-        <p className="profile-bio">{shortBio}</p>
+        <img src={profileImageUrl} alt="profile" key="profile_image_url" />
+        <h1 className="profile-name" key="name">
+          {name}
+        </h1>
+        <p className="profile-bio" key="short_bio">
+          {shortBio}
+        </p>
       </div>
     )
   }
